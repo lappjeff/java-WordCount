@@ -49,44 +49,33 @@ public class Main
 
     });
 
+    System.out.println("\n*** Top 50 sorted by occurrences *** \n");
+    // sortedOccurrences.forEach(item -> System.out.println(item));
     for (int i = 0; i <= 50; i++)
     {
       System.out.println(sortedOccurrences.get(i));
     }
-    // System.out.println(sortedOccurrences);
+
+    ArrayList<HashMap.Entry<String, Integer>> top50 = new ArrayList<HashMap.Entry<String, Integer>>();
+    for (int i = 0; i <= 50; i++)
+    {
+      top50.add(sortedOccurrences.get(i));
+    }
 
 
-    // for (String word : wordsArrayList)
-    // {
-    //   occurrences.put(word.getWord(), 0);
-    // }
+    Collections.sort(top50, new Comparator<Map.Entry<String, Integer>>()
+      {
+        public int compare(HashMap.Entry<String, Integer> o1, HashMap.Entry<String, Integer> o2)
+        {
+          return o1.getKey().compareToIgnoreCase(o2.getKey());
+        }
+      }
+    );
 
-    //
-    // for (Word w: wordsArrayList)
-    // {
-    //   Set<String> keys = occurrences.keySet();
-    //
-    //   System.out.println(keys);
-    // }
-    // int counts = 0;
+    System.out.println("\n*** Top 50 sorted alphabetically *** \n");
 
+    top50.forEach(item -> System.out.println(item));
 
 
-    // HashMap<String, Integer> occurrences = new HashMap<String, Integer>();
-    // int hashCount = 0;
-    // for (String word : wordsArrayList)
-    // {
-    //   occurrences.put(word, hashCount);
-    //   hashCount++;
-    // }
-    //
-    // System.out.println(occurrences);
-
-    // for (String i : occurrences.keySet())
-    // {
-    //   System.out.println(occurrences.get(i));
-    // }
-    // occurrences.addAll(words);
-    // System.out.println(wordsArrayList);
   }
 }
